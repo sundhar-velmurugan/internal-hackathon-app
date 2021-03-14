@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+import 'spectre.css';
+
 import AppHeader from './container/AppHeader/AppHeader';
 import HomePage from './container/HomePage/HomePage';
 import ChallengeRouter from './container/RouterComponent/ChallengeRouter/ChallengeRouter';

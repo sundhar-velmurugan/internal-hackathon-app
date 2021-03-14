@@ -10,7 +10,6 @@
     ]
   },
   "scripts": {
-    "test": "npm test",
     "start": "webpack serve --open"
   },
   "keywords": [
@@ -19,10 +18,11 @@
   "author": "Sundhar Velmurugan",
   "license": "ISC",
   "dependencies": {
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
     "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "spectre.css": "^0.5.9"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
