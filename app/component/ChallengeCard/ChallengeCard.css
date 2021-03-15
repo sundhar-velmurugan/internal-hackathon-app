@@ -1,0 +1,20 @@
+.challenge-card {
+  margin: 10px;
+  border-radius: 15px;
+  padding: 25px;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.like-button {
+  cursor: pointer;
+}
+
+.like-button-disabled {
+  cursor: not-allowed;
+}
+
