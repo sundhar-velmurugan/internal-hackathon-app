@@ -28,7 +28,7 @@ export default class NotFound extends Component {
 NotFound.propTypes = PropTypes;
 
 NotFound.defaultProps = {
-  iconName: 'fa fa-code fa-10x',
+  iconName: 'fa fa-code fa-5x',
   title: 'Page Not Found',
   buttonText: 'Go to Home Page',
   needRedirectButton: true,

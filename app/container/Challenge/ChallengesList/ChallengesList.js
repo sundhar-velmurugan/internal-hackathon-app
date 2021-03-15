@@ -47,7 +47,6 @@ ChallengesList.defaultProps = {
   challenges: []
 };
 
-
 const mapStateToProps = state => ({
   challenges: state.challenge.challenges,
   employeeId: state.employee.employeeId

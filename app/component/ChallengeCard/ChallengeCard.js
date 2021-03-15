@@ -44,7 +44,8 @@ export default class ChallengeCard extends Component {
                       aria-hidden='true'
                       onClick={this.upvoteChallenge.bind(this, false)}
                     ></i>
-                    {` ${upvotes.length}`}
+                    {` ${upvotes.length} `}
+                    <span className='label label-secondary'>Liked</span>
                   </Fragment>
                 ) : (
                   <Fragment>
@@ -54,7 +55,8 @@ export default class ChallengeCard extends Component {
                       onClick={this.upvoteChallenge.bind(this, true)}
                       title={`${employeeId ? '' : 'You need to login to like'}`}
                     ></i>
-                    {` ${upvotes.length}`}
+                    {` ${upvotes.length} `}
+                    <span className='label'>Like</span>
                   </Fragment>
                 )}
               </div>

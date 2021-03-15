@@ -31,7 +31,6 @@ export default (state = initialState, action) => {
         return { challenges: newChallenges };
       }
       return state;
-    case GET_CHALLENGE:
     case EDIT_CHALLENGE:
     case DELETE_CHALLENGE:
     default:
