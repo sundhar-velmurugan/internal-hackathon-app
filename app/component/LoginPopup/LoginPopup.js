@@ -14,7 +14,7 @@ export default class LoginPopup extends Component {
           <div className='modal-body'>
             <div className='content'>
               <div className='form-group'>
-                <label className='form-label' htmlFor='employee-id'>
+                <label className='form-label label label-rounded label-primary my-1' htmlFor='employee-id'>
                   Employee Id
                 </label>
                 <input

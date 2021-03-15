@@ -9,8 +9,8 @@ export default class Header extends Component {
     return (
       <header className='navbar nav-header'>
         <section className='navbar-section'>
-          <Link to='/' className='btn btn-link'>
-            <i className='fa fa-cogs' aria-hidden='true'></i> Challenge Management Tool
+          <Link to='/' className='btn btn-link text-bold'>
+            <i className='fa fa-cogs' aria-hidden='true'></i> Hack News
           </Link>
         </section>
         <section className='navbar-section'>
