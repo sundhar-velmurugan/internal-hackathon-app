@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import Header from '../../component/Header/Header';
 import LoginPopup from '../../component/LoginPopup/LoginPopup';
+
 import { SET_EMPLOYEE_ID } from '../../actions/types';
 import './AppHeader.css';
 import PropTypes from './AppHeader.propTypes';
@@ -71,36 +72,7 @@ class AppHeader extends Component {
     const { isLoginPopup, employeeIdValue, employeeIdErrorMsg } = this.state;
     return (
       <Fragment>
-        <header className='navbar nav-header'>
-          <section className='navbar-section'>
-            <Link to='/' className='btn btn-link'>
-              <i className='fa fa-cogs' aria-hidden='true'></i> Challenge Management Tool
-            </Link>
-          </section>
-          <section className='navbar-section'>
-            <Link to='/challenge' className='btn btn-link'>
-              Challenges
-            </Link>
-            <Link to='/tag' className='btn btn-link'>
-              Tags
-            </Link>
-            {employeeId ? (
-              <Fragment>
-                <i className='fa fa-user-circle fa-lg profile-icons' aria-hidden='true' title={employeeId}></i>
-                <i
-                  className='fa fa-sign-out fa-lg profile-icons'
-                  aria-hidden='true'
-                  title='Log out'
-                  onClick={() => setEmployeeId('')}
-                ></i>
-              </Fragment>
-            ) : (
-              <button className='btn btn-primary input-group-btn' onClick={this.toggleLoginPopup.bind(this, true)}>
-                Login
-              </button>
-            )}
-          </section>
-        </header>
+        <Header employeeId={employeeId} setEmployeeId={setEmployeeId} toggleLoginPopup={this.toggleLoginPopup} />
         {isLoginPopup ? (
           <LoginPopup
             onSubmit={this.loginEmployee}
