@@ -1,17 +1,14 @@
-import { SET_EMPLOYEE_ID } from '../actions/types';
+import { UPDATE_TAGS } from '../actions/types';
 
 const initialState = {
-  challenges: []
+  tags: {}
 };
 
 export default (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case GET_CHALLENGES:
-    case GET_CHALLENGE:
-    case EDIT_CHALLENGE:
-    case DELETE_CHALLENGE:
+    case UPDATE_TAGS:
     default:
       return state;
   }

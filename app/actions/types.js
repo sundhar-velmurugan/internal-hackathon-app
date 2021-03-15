@@ -1,1 +1,8 @@
 export const SET_EMPLOYEE_ID = 'SET_EMPLOYEE_ID';
+
+export const GET_CHALLENGES = 'SET_EMPLOYEE_ID';
+export const GET_CHALLENGE = 'SET_EMPLOYEE_ID';
+export const EDIT_CHALLENGE = 'SET_EMPLOYEE_ID';
+export const DELETE_CHALLENGE = 'DELETE_CHALLENGE';
+
+export const UPDATE_TAGS = 'UPDATE_TAGS';
