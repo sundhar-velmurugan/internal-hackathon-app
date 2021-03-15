@@ -20,8 +20,10 @@
   "dependencies": {
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-redux": "^7.2.2",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5",
     "spectre.css": "^0.5.9"
   },
   "devDependencies": {

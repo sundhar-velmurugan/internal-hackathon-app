@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import PropTypes from './NotFound.propTypes';
+import './NotFound.css';
 
 export default class NotFound extends Component {
   render() {
     const { iconName, title, buttonText, needRedirectButton, redirectUrl } = this.props;
     return (
-      <div className='empty'>
+      <div className='empty not-found'>
         <div className='empty-icon'>
           <i className={iconName} aria-hidden='true'></i>
         </div>
