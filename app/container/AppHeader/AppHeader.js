@@ -122,7 +122,7 @@ AppHeader.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  employeeId: state.employeeId
+  employeeId: state.employee.employeeId
 });
 
 const mapDispatchToProps = dispatch => {
