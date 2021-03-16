@@ -33,7 +33,7 @@ export default class ChallengeDetailRightPanel extends Component {
             {challenge.tag.length
               ? challenge.tag.map(tagName => (
                   <span className='chip' key={tagName}>
-                    <Link to={`/tag/${tagName}`}>{tagName}</Link>
+                    {tagName}
                   </span>
                 ))
               : null}

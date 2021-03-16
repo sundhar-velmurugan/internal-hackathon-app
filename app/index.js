@@ -9,7 +9,6 @@ import 'spectre.css';
 import AppHeader from './container/AppHeader/AppHeader';
 import HomePage from './container/HomePage/HomePage';
 import ChallengeRouter from './container/RouterComponent/ChallengeRouter/ChallengeRouter';
-import TagRouter from './container/RouterComponent/TagRouter/TagRouter';
 
 import NotFound from './component/NotFound/NotFound';
 
@@ -23,9 +22,6 @@ const App = () => (
         </Route>
         <Route path='/challenge'>
           <ChallengeRouter />
-        </Route>
-        <Route path='/tag'>
-          <TagRouter />
         </Route>
         <Route path='*'>
           <NotFound />

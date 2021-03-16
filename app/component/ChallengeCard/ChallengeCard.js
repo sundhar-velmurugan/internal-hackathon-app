@@ -30,7 +30,7 @@ export default class ChallengeCard extends Component {
             Tags:{' '}
             {tag.map(tagName => (
               <span className='chip' key={tagName}>
-                <Link to={`/tag/${tagName}`}>{tagName}</Link>
+                {tagName}
               </span>
             ))}
           </p>

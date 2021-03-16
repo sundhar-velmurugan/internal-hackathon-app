@@ -17,9 +17,6 @@ export default class Header extends Component {
           <Link to='/challenge' className='btn btn-link'>
             Challenges
           </Link>
-          <Link to='/tag' className='btn btn-link'>
-            Tags
-          </Link>
           {employeeId ? (
             <Fragment>
               <i className='fa fa-user-circle fa-lg profile-icons' aria-hidden='true' title={employeeId}></i>
