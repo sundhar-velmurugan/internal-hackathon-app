@@ -25,7 +25,6 @@ export default class ChallengeDetailRightPanel extends Component {
             <Link to={`/challenge/${challenge.id}/edit`}>
               <button className='btn btn-primary'>Edit</button>
             </Link>
-            <button className='btn btn-link text-error'>Delete</button>
           </div>
         ) : null}
         <dl>

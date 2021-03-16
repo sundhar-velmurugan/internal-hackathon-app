@@ -1,4 +1,4 @@
-import { GET_CHALLENGES, GET_CHALLENGE, EDIT_CHALLENGE, DELETE_CHALLENGE, UPVOTE_CHALLENGE } from '../actions/types';
+import { GET_CHALLENGES, EDIT_CHALLENGE, CREATE_CHALLENGE, UPVOTE_CHALLENGE } from '../actions/types';
 import { findChallenge } from '../utlis/challenge';
 
 const initialState = {
@@ -31,8 +31,22 @@ export default (state = initialState, action) => {
         return { challenges: newChallenges };
       }
       return state;
+    case CREATE_CHALLENGE:
+      const newState = Object.assign({}, state);
+      const newChallenges = [payload, ...newState.challenges];
+      return { challenges: newChallenges };
     case EDIT_CHALLENGE:
-    case DELETE_CHALLENGE:
+      const { challenges: stateChallenges } = state;
+      const challengeIndex = findChallenge(stateChallenges, payload.id);
+      if (challengeIndex !== -1) {
+        const newState = Object.assign({}, state);
+        let newStateChallenges = [...newState.challenges];
+        newStateChallenges = newStateChallenges
+          .slice(0, challengeIndex)
+          .concat(payload, newStateChallenges.slice(challengeIndex + 1));
+        return { challenges: newStateChallenges };
+      }
+      return state;
     default:
       return state;
   }

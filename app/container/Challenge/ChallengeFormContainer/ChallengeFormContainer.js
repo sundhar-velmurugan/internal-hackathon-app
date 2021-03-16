@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { shallowCompare } from '../../../utlis/common';
+import { createChallenge, updateChallenge } from '../../../actions/challenge';
 
 import ChallengeForm from '../../../component/ChallengeForm/ChallengeForm';
 
@@ -12,12 +13,18 @@ class ChallengeFormContainer extends Component {
     this.state = {
       title: '',
       description: '',
-      tag: ''
+      tag: '',
+      titleErrorMsg: '',
+      descriptionErrorMsg: '',
+      tagErrorMsg: ''
     };
 
     this.onTitleChange = this.onTitleChange.bind(this);
     this.onDescriptionChange = this.onDescriptionChange.bind(this);
     this.onTagChange = this.onTagChange.bind(this);
+    this.onFormSubmit = this.onFormSubmit.bind(this);
+    this.clearFormContents = this.clearFormContents.bind(this);
+    this.validateFormData = this.validateFormData.bind(this);
   }
 
   componentDidUpdate(prevProps) {
@@ -53,9 +60,73 @@ class ChallengeFormContainer extends Component {
     });
   }
 
+  validateFormData() {
+    const { title, description, tag } = this.state;
+    if (!title.length) {
+      this.setState({
+        titleErrorMsg: 'Title must not be empty'
+      });
+      return false;
+    } else {
+      this.setState({
+        titleErrorMsg: ''
+      });
+    }
+    if (!description.length) {
+      this.setState({
+        descriptionErrorMsg: 'Please enter a description'
+      });
+      return false;
+    } else {
+      this.setState({
+        descriptionErrorMsg: ''
+      });
+    }
+    if (!tag.length) {
+      this.setState({
+        tagErrorMsg: 'Specify tags for your challenge'
+      });
+      return false;
+    } else {
+      this.setState({
+        tagErrorMsg: ''
+      });
+    }
+    return true;
+  }
+
+  onFormSubmit() {
+    if (this.validateFormData()) {
+      const { title, description, tag } = this.state;
+      const { employeeId, isEditForm } = this.props;
+      const input = {
+        title,
+        description,
+        tag: tag.split(','),
+        upvotes: [],
+        timestamp: new Date().toISOString(),
+        authorId: employeeId
+      };
+      if (isEditForm) {
+        const { challenge, updateChallenge } = this.props;
+        input.id = challenge.id;
+        updateChallenge && updateChallenge(input);
+      } else {
+        const { challenges, createChallenge } = this.props;
+        input.id = challenges.length + 1;
+        createChallenge && createChallenge(input);
+      }
+      //reditect to challenge page
+    }
+  }
+
+  clearFormContents() {
+    this.setState({ title: '', description: '', tag: '' });
+  }
+
   render() {
     const { isEditForm, employeeId, challenge } = this.props;
-    const { title, description, tag } = this.state;
+    const { title, description, tag, titleErrorMsg, descriptionErrorMsg, tagErrorMsg } = this.state;
 
     const isFormDisabled = isEditForm ? employeeId !== challenge.authorId : !employeeId;
     return (
@@ -68,6 +139,11 @@ class ChallengeFormContainer extends Component {
         onTitleChange={this.onTitleChange}
         onDescriptionChange={this.onDescriptionChange}
         onTagChange={this.onTagChange}
+        onFormSubmit={this.onFormSubmit}
+        clearFormContents={this.clearFormContents}
+        titleErrorMsg={titleErrorMsg}
+        descriptionErrorMsg={descriptionErrorMsg}
+        tagErrorMsg={tagErrorMsg}
       />
     );
   }
@@ -75,11 +151,13 @@ class ChallengeFormContainer extends Component {
 
 ChallengeFormContainer.defaultProps = {
   isEditForm: false,
-  challenge: {}
+  challenge: {},
+  challenges: []
 };
 
 const mapStateToProps = state => ({
-  employeeId: state.employee.employeeId
+  employeeId: state.employee.employeeId,
+  challenges: state.challenge.challenges
 });
 
-export default connect(mapStateToProps)(ChallengeFormContainer);
+export default connect(mapStateToProps, { createChallenge, updateChallenge })(ChallengeFormContainer);
