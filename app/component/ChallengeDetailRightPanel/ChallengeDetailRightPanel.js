@@ -81,7 +81,7 @@ export default class ChallengeDetailRightPanel extends Component {
         </dl>
         <dl>
           <dt>Created Time</dt>
-          <dd>Time: {new Date(challenge.timestamp).toDateString()}</dd>
+          <dd>{new Date(challenge.timestamp).toDateString()}</dd>
         </dl>
       </div>
     );

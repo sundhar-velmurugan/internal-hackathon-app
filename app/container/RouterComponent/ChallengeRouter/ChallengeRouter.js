@@ -2,9 +2,9 @@ import React from 'react';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
 
 import ChallengesList from '../../Challenge/ChallengesList/ChallengesList';
-import AddChallenge from '../../Challenge/AddChallenge/AddChallenge';
+import ChallengeFormContainer from '../../Challenge/ChallengeFormContainer/ChallengeFormContainer';
 import ChallengeDetailView from '../../Challenge/ChallengeDetailView/ChallengeDetailView';
-import ChallengeEditView from '../../Challenge/ChallengeEditView/ChallengeEditView';
+import EditChallengeContainer from '../../Challenge/EditChallengeContainer/EditChallengeContainer';
 
 import NotFound from '../../../component/NotFound/NotFound';
 
@@ -16,13 +16,13 @@ const ChallengeRouter = () => {
         <ChallengesList />
       </Route>
       <Route path={`${path}/add`} exact>
-        <AddChallenge />
+        <ChallengeFormContainer />
       </Route>
       <Route path={`${path}/:challengeId`} exact>
         <ChallengeDetailView />
       </Route>
       <Route path={`${path}/:challengeId/edit`} exact>
-        <ChallengeEditView />
+        <EditChallengeContainer />
       </Route>
       <Route path={`${path}/*`}>
         <NotFound />
