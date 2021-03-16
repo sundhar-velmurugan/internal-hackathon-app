@@ -1,8 +1,9 @@
-import React, { Component,Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import './HomePage.css';
+import PropTypes from './HomePage.propTypes';
 
 class HomePage extends Component {
   render() {
@@ -51,6 +52,8 @@ class HomePage extends Component {
     );
   }
 }
+
+HomePage.propTypes = PropTypes;
 
 HomePage.defaultProps = {
   employeeId: ''

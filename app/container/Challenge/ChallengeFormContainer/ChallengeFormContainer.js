@@ -7,6 +7,8 @@ import { createChallenge, updateChallenge } from '../../../actions/challenge';
 
 import ChallengeForm from '../../../component/ChallengeForm/ChallengeForm';
 
+import PropTypes from './ChallengeFormContainer.propTypes';
+
 class ChallengeFormContainer extends Component {
   constructor(props) {
     super(props);
@@ -150,10 +152,13 @@ class ChallengeFormContainer extends Component {
   }
 }
 
+ChallengeFormContainer.propTypes = PropTypes;
+
 ChallengeFormContainer.defaultProps = {
   isEditForm: false,
   challenge: {},
-  challenges: []
+  challenges: [],
+  employeeId: ''
 };
 
 const mapStateToProps = state => ({

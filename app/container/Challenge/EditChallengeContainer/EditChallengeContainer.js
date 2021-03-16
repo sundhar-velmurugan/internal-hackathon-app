@@ -6,6 +6,8 @@ import ChallengeFormContainer from '../ChallengeFormContainer/ChallengeFormConta
 
 import { findChallenge } from '../../../utlis/challenge';
 
+import PropTypes from './EditChallengeContainer.propTypes';
+
 class EditChallengeContainer extends Component {
   constructor(props) {
     super(props);
@@ -33,6 +35,8 @@ class EditChallengeContainer extends Component {
     return <ChallengeFormContainer isEditForm={true} challenge={challenge} />;
   }
 }
+
+EditChallengeContainer.propTypes = PropTypes;
 
 EditChallengeContainer.defaultProps = {
   employeeId: '',
