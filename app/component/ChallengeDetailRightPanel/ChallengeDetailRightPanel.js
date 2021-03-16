@@ -20,25 +20,14 @@ export default class ChallengeDetailRightPanel extends Component {
     const { employeeId, challenge } = this.props;
     return (
       <div className='right-panel-container'>
-        <div>
-          {challenge.authorId === employeeId ? (
-            <Fragment>
-              <Link to={`/challenge/${challenge.id}/edit`}>
-                <button className='btn btn-primary'>Edit</button>
-              </Link>
-              <button className='btn btn-link text-error'>Delete</button>
-            </Fragment>
-          ) : (
-            <Fragment>
-              <button className='btn btn-primary' disabled tabIndex='-1'>
-                Edit
-              </button>
-              <button className='btn btn-link text-error' disabled tabIndex='-1'>
-                Delete
-              </button>
-            </Fragment>
-          )}
-        </div>
+        {challenge.authorId === employeeId ? (
+          <div>
+            <Link to={`/challenge/${challenge.id}/edit`}>
+              <button className='btn btn-primary'>Edit</button>
+            </Link>
+            <button className='btn btn-link text-error'>Delete</button>
+          </div>
+        ) : null}
         <dl>
           <dt>Tag</dt>
           <dd>

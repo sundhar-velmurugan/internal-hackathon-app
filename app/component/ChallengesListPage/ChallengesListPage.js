@@ -31,13 +31,15 @@ export default class ChallengesListPage extends Component {
               : 'No Challenges'}
           </div>
           <div className='column col-2 list-view-container'>
-            {employeeId ? (
-              <Link to='/challenge/add'>
-                <button className='btn btn-success'>Add Challenge</button>
-              </Link>
-            ) : (
-              'Login to add challenges'
-            )}
+            <div className='list-right-continer'>
+              {employeeId ? (
+                <Link to='/challenge/add'>
+                  <button className='btn btn-success'>Add Challenge</button>
+                </Link>
+              ) : (
+                'Login to add challenges'
+              )}
+            </div>
           </div>
         </div>
       </div>
