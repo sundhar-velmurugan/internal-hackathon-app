@@ -25,16 +25,16 @@ class HomePage extends Component {
                 <Fragment>
                   <h3>Welome Guest</h3>
                   <p>
-                    <i class='fa fa-arrow-circle-right' aria-hidden='true'></i> As a guest, your actions are limited.
+                    <i className='fa fa-arrow-circle-right' aria-hidden='true'></i> As a guest, your actions are limited.
                   </p>
                   <p>
-                    <i class='fa fa-arrow-circle-right' aria-hidden='true'></i> You can't like, add and edit challenges.
+                    <i className='fa fa-arrow-circle-right' aria-hidden='true'></i> You can't like, add and edit challenges.
                   </p>
                   <p>
-                    <i class='fa fa-arrow-circle-right' aria-hidden='true'></i> But you can view the challenges.
+                    <i className='fa fa-arrow-circle-right' aria-hidden='true'></i> But you can view the challenges.
                   </p>
                   <p>
-                    <i class='fa fa-arrow-circle-right' aria-hidden='true'></i> Enjoy your visit here.
+                    <i className='fa fa-arrow-circle-right' aria-hidden='true'></i> Enjoy your visit here.
                   </p>
                 </Fragment>
               )}
