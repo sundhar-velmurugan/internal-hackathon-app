@@ -1,7 +1,63 @@
-import React, { Component } from 'react';
+import React, { Component,Fragment } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-export default class HomePage extends Component {
+import './HomePage.css';
+
+class HomePage extends Component {
   render() {
-    return <div>Home Page</div>;
+    const { employeeId } = this.props;
+    return (
+      <div className='container'>
+        <div className='columns'>
+          <div className='column col-6 home-card'>
+            <div className='center-container'>
+              {employeeId ? (
+                <Fragment>
+                  <h3>{`Welcome, ${employeeId}`}</h3>
+                  <p>Get Started...</p>
+                  <Link to='/challenge/add'>
+                    <button className='btn btn-success'>Add Challenge</button>
+                  </Link>
+                </Fragment>
+              ) : (
+                <Fragment>
+                  <h3>Welome Guest</h3>
+                  <p>
+                    <i class='fa fa-arrow-circle-right' aria-hidden='true'></i> As a guest, your actions are limited.
+                  </p>
+                  <p>
+                    <i class='fa fa-arrow-circle-right' aria-hidden='true'></i> You can't like, add and edit challenges.
+                  </p>
+                  <p>
+                    <i class='fa fa-arrow-circle-right' aria-hidden='true'></i> But you can view the challenges.
+                  </p>
+                  <p>
+                    <i class='fa fa-arrow-circle-right' aria-hidden='true'></i> Enjoy your visit here.
+                  </p>
+                </Fragment>
+              )}
+            </div>
+          </div>
+          <div className='column col-6 home-card border-left'>
+            <div className='center-container'>
+              <h1>
+                View all <Link to='/challenge'>Challenges</Link>
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   }
 }
+
+HomePage.defaultProps = {
+  employeeId: ''
+};
+
+const mapStateToProps = state => ({
+  employeeId: state.employee.employeeId
+});
+
+export default connect(mapStateToProps)(HomePage);
