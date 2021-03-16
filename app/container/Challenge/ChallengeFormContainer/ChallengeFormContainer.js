@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import { shallowCompare } from '../../../utlis/common';
 import { createChallenge, updateChallenge } from '../../../actions/challenge';
@@ -116,7 +117,7 @@ class ChallengeFormContainer extends Component {
         input.id = challenges.length + 1;
         createChallenge && createChallenge(input);
       }
-      //reditect to challenge page
+      this.props.history.push('/challenge');
     }
   }
 
@@ -160,4 +161,4 @@ const mapStateToProps = state => ({
   challenges: state.challenge.challenges
 });
 
-export default connect(mapStateToProps, { createChallenge, updateChallenge })(ChallengeFormContainer);
+export default withRouter(connect(mapStateToProps, { createChallenge, updateChallenge })(ChallengeFormContainer));
