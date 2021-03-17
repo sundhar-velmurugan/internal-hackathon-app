@@ -113,6 +113,7 @@ class ChallengeFormContainer extends Component {
       if (isEditForm) {
         const { challenge, updateChallenge } = this.props;
         input.id = challenge.id;
+        input.upvotes = challenge.upvotes;
         updateChallenge && updateChallenge(input);
       } else {
         const { challenges, createChallenge } = this.props;
